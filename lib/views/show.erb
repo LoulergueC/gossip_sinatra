@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>The Gossip Project : </title>
+  </head>
+  <body>
+    <h1>Page Potin</h1>
+    <p>Voici la page du potin n°<%= id %></p>
+    <a href="<%= id %>/edit">Editer ce potin</a>
+
+    <p> Son autheur : <%= gossip.author %></p>
+    <p> Son contenu : <%= gossip.content %></p>
+
+    <a href="/">Revenir à la page des potins</a>
+
+    <div class="comments">
+        <% Comments.show(id).each do |comment|%>
+            <p><u><%= comment.author %></u> a commenté : <%= comment.content %></p>
+        <% end %>
+
+        <h2>Poster un commentaire</h2>
+        <form action="/comments/new" method="POST">
+            <input type="hidden" name="id" value="<%= id %>"/>
+            <input type="text" name="author" placeholder="Votre nom"/><br/>
+            <textarea type="text" name="content" placeholder="Votre commentaire"/></textarea><br/>
+            <input type="submit"/>
+        </form>
+    </div>
+  </body>
+</html>

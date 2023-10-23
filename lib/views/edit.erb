@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Modifier un potin</title>
+  </head>
+  <body>
+    <h1>Modifie un potin !</h1>
+    <p>Change ton potin via le formulaire ci-dessous</p>
+    <form action='/gossips/<%= id %>/edit' method='POST'>
+      Saisi ici ton nom :  <input type='text' name='gossip_author' value='<%= gossip.author %>'/><br/>
+      Balance ton potin : <textarea type='text' name='gossip_content'/><%= gossip.content %></textarea><br/>
+      <input type='submit'/>
+    </form>
+
+    <a href="../<%= id %>">Revenir au potin</a>
+  </body>
+</html>
